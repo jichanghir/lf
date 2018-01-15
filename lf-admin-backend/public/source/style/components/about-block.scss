@@ -1,0 +1,22 @@
+.about-block {
+    width: 443px;
+    margin: 0 auto;
+
+    padding: 15px 0;
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__photo {
+        width: 100%;
+        height: 390px;
+
+        background: {
+            size: cover;
+            position: center center;
+        }
+
+        margin-bottom: 40px;
+    }
+}

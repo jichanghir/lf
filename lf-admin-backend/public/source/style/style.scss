@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i');
+@font-face {
+  font-family: 'bernier-distressed';
+  src: url('/fonts/bernier/BERNIERDistressed-Regular.otf');
+}
+@font-face {
+  font-family: 'bernier-regular';
+  src: url('/fonts/bernier/BERNIERRegular-Regular.otf');
+}
+@font-face {
+  font-family: 'bernier-shade';
+  src: url('/fonts/bernier/BERNIERShade-Regular.otf');
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+@import "helpers/**/*.scss";
+@import "components/**/*.scss";
+

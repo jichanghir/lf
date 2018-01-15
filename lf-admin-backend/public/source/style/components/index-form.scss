@@ -1,0 +1,94 @@
+.index-form {
+    $opacity: .85;
+
+    width: 380px;
+    //opacity: .85;
+    background-color: rgba(#fcfcfc, $opacity);
+    padding-top: 40px;
+    border-radius: 3px;
+    overflow: hidden;
+
+    &__user-main {
+        color: $text-color !important;
+
+        margin-bottom: 35px;
+    }
+
+    &__socials {
+        text-align: center;
+        padding-bottom: 40px;
+        justify-content: center !important;
+    }
+
+    &__btns {
+        display: flex;
+    }
+
+    &__link {
+        display: block;
+        flex: 1;
+        background-color: rgba($green, $opacity);
+        line-height: 45px;
+        text-align: center;
+
+        color: $white;
+        font: {
+            size: 16px;
+            weight: 500;
+        }
+        text-decoration: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba($green-hover, $opacity);
+        }
+
+        &:not(:last-child) {
+            border-right: 2px solid rgba($green2, .5);
+        }
+    }
+
+    &__title {
+        margin-bottom: 40px;
+    }
+
+    &__subtitle {
+        color: $text-color;
+        font: {
+            size: 16px;
+            weight: 500;
+        }
+        text-align: center;
+    }
+
+    &__inputs {
+        padding: 0 20px;
+    }
+
+    &__row {
+        margin-bottom: 20px;
+    }
+
+    &__captcha1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        label {
+            margin-right: 11px;
+        }
+
+        span {
+            color: $text-color;
+            font: {
+                size: 16px;
+                weight: 300;
+            }
+        }
+    }
+
+    &__captcha2 {
+        display: flex;
+        justify-content: space-around;
+    }
+}

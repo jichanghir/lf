@@ -1,0 +1,22 @@
+include ../helpers/mixins
+
+mixin topSection(page)
+
+    section.top-section#top-section
+        include ./header
+
+        .user-main.top-section__user-main
+            .user-main__img(style="background-image: url('/images/as.jpg')")
+            .user-main__fio Серкин Александр
+            .user-main__title Личный сайт веб разработчика
+
+        .top-section__down#top-section__down
+            svg
+                use(xlink:href="/build/icons/sprite.svg#arrow_down")
+            //img(src="/images/icons/arrow_down.svg", alt="")
+
+        .top-section__triangles
+            .top-section__triangle
+                +triangleLeft(page)
+            .top-section__triangle
+                +triangleRight(page)

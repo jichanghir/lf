@@ -1,0 +1,44 @@
+.simple-radio {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    &__input {
+        display: none;
+
+        &:checked + label::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: $green;
+        }
+
+        &:checked + label + span {
+            color: $green;
+        }
+    }
+
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #cdcdcd;
+        background-color: white;
+
+        margin-right: 9px;
+        cursor: pointer;
+    }
+
+    &__text {
+        color: $text-color;
+        font: {
+            size: 16px;
+            weight: 400;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.skills {
+
+    &.clear .circle__second {
+        stroke-dasharray: 0 307.87582 !important;
+    }
+
+    &__title {
+        color: $text-color;
+        font: {
+            size: 28px;
+            weight: 500;
+        }
+
+        margin-bottom: 20px;
+    }
+
+    &__item {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 0 40px 40px 0;
+    }
+}

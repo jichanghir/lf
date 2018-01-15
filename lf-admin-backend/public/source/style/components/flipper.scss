@@ -1,0 +1,45 @@
+.flipper {
+   // $width: 380px;
+
+    perspective: 400px;
+    position: relative;
+
+    transition: transform 1s;
+    transform-style: preserve-3d;
+
+    &.rotate {
+        transform: rotateY(180deg);// translate3d(-$width / 2, 0px, 0px);
+    }
+
+
+    .flipper__front, .flipper__back {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        backface-visibility: hidden;
+    }
+
+    .flipper__front {
+        transform: translateX(-50%);
+    }
+
+    .flipper__back {
+        transform: rotateY(180deg) translateX(50%);
+    }
+
+
+    // del
+    // .flipper__front {
+    //     //width: $width;
+    //     padding: 50px;
+    //     background: red;
+    // }
+
+    // .flipper__back {
+    //     //width: $width;
+    //     padding: 50px;
+    //     background: green;
+    // }
+
+
+}

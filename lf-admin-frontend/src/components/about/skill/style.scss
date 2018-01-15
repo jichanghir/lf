@@ -1,0 +1,45 @@
+.skill {
+    width: 200px;
+    margin-right: 90px;
+    margin-bottom: 25px;
+
+    &__table {
+        margin-left: 20px;
+
+        td {
+            padding: 4px 0;
+        }
+    }
+
+    &__name {
+        width: 105px;
+        text-align: left;
+    }
+
+    &__input {
+        width: 48px;
+    }
+
+    &__percent {
+        width: 30px;
+        text-align: center;
+    }
+
+    &__add-new {
+        margin-top: 10px;
+    }
+
+    &__add-btn {
+        margin-top: 10px;
+    }
+
+    &__delete-btn {
+        background-color: rgba(0,0,0,0);
+        color: $green;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}

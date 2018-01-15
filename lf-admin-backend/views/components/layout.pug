@@ -1,0 +1,40 @@
+block variables
+
+doctype html
+html
+    head
+        meta(charset = 'utf-8')
+        meta(name='viewport', content="initial-scale=1.0, width=device-width")
+
+        title
+            block page-title
+        link(rel="stylesheet" href='/build/style/foundation.css')
+        link(rel="stylesheet" href='/build/style/style.css')
+    body
+
+        include preloader
+
+        if scrollPage
+            .bg-scroll-parallax
+                .bg-scroll-parallax__container
+                    each i in [10,9,8,7,6,5,4,3,2,1]
+                        .bg-scroll-parallax__layer
+                            img(src=`/images/parallax2/l${i}.png`, alt="").bg-scroll-parallax__img
+
+                .bg-scroll-parallax__content
+
+                    block page
+
+        else if authParallax
+            .bg-parallax
+                .bg-parallax__container#bg-parallax
+                    each i in [10,9,8,7,6,5,4,3,2,1]
+                        .bg-parallax__layer
+                            img(src=`/images/parallax2/l${i}.png`, alt="").bg-parallax__img
+
+            block page
+
+        else
+            block page
+
+        script(src='/build/js/script.js')

@@ -1,0 +1,40 @@
+.user-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: $white;
+
+    &__img{
+        border-radius: 50%;
+        overflow: hidden;
+        width: 141px;
+        height: 141px;
+
+        margin-bottom: 30px;
+
+        background: {
+            position: center center;
+            size: cover;
+        }
+    }
+
+    &__fio {
+        font: {
+            size: 35px;
+            weight: 500;
+        }
+
+        margin-bottom: 7px;
+    }
+
+    &__title {
+        opacity: .8;
+        font: {
+            size: 16px;
+            weight: 300;
+        }
+        opacity: .8;
+    }
+}

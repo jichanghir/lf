@@ -1,0 +1,79 @@
+extends ./components/layout
+
+block variables
+    - var authParallax = true;
+
+block page-title
+    | #{title}
+
+block page
+
+    include ./components/top-section
+    +topSection('about')
+
+    section.content
+        .content__left
+            .about-block
+                .title.title--super.about-block__title
+                    span Обо мне
+                .about-block__photo(style="background-image: url('/images/as.jpg')")
+                .title.about-block__title
+                    span Кто я
+                .simple-text Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
+        .content__right
+            .utility-block
+                .title.about-block__title.utility-block__title
+                    span Чем я могу быть вам полезен
+                .simple-text.utility-block__simple-text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
+
+                each skill in skills
+                    .skills.clear
+                        .skills__title=skill.skillType
+                        .skills__items
+                            each item in skill.skills
+                                -var prc = 307.87582 * (item.percent/100)
+                                .circle.skills__item
+                                    .circle__title=item.name
+                                    svg.circle__svg(viewbox='0 0 110 110')
+                                        circle.circle__first(
+                                            r='45',
+                                            cx='50%',
+                                            cy='50%',
+                                            fill='none'
+                                        )
+                                        circle.circle__second(
+                                            r='45',
+                                            cx='50%',
+                                            cy='50%',
+                                            transform='rotate(-90 55 55)'
+                                            stroke-dasharray=`${prc} 307.87582`
+                                    )
+
+    section.contacts
+        .contacts__map#map
+        .contacts__form
+            .title.contacts__title
+                    span Контакты
+            .contacts__row
+                .contacts__icon
+                    img(src="/images/icons/skype.svg", alt="")
+                .contacts__desc jichanghir
+            .contacts__row
+                .contacts__icon
+                    img(src="/images/icons/envelope.svg", alt="")
+                .contacts__desc serkinworld@gmail.com
+            .contacts__row
+                .contacts__icon
+                    img(src="/images/icons/phone.svg", alt="")
+                .contacts__desc +380935963882
+            .contacts__row
+                .contacts__icon
+                    img(src="/images/icons/map_marker.svg", alt="")
+                .contacts__desc Odessa
+
+    include ./components/footer
+
+    include ./assets/google-map.pug
+
+

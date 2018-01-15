@@ -1,0 +1,30 @@
+.socials {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &__item {
+        display: block;
+        margin-right: 25px;
+        opacity: 0.5;
+
+        text-decoration: none;
+
+        &:hover{
+            opacity: 1;
+        }
+    }
+
+    &__svg {
+        width: 30px;
+        height: 30px;
+
+        &--white {
+            fill: $white;
+        }
+
+        &--green {
+            fill: $green;
+        }
+    }
+}

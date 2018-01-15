@@ -1,0 +1,17 @@
+.button {
+    display: block;
+    width: 113px;
+    line-height: 46px;
+    border-radius: 5px;
+    background-color: $green;
+    cursor: pointer;
+
+    color: $btn-text-color;
+    font: {
+        size: 16px;
+        weight: 500;
+    }
+    text: {
+        align: center;
+    }
+}

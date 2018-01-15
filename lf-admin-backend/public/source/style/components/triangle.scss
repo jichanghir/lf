@@ -1,0 +1,24 @@
+.triangle {
+    margin-bottom: -7px;
+
+    &--left-about {
+        fill: $bg1;
+    }
+    &--right-about {
+        fill: $bg2;
+    }
+
+    &--left-blog {
+        fill: $blog-bg;
+    }
+    &--right-blog {
+        fill: $blog-bg;
+    }
+
+    &--left-works {
+        fill: $works-bg;
+    }
+    &--right-works {
+        fill: $works-bg;
+    }
+}

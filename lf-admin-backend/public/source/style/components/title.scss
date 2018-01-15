@@ -1,0 +1,81 @@
+.title {
+    $fz1: 35px;
+    $fz2: 63px;
+
+    color: $text-color;
+    font-family: 'bernier-regular';
+    font-size: $fz1;
+    text: {
+        transform: uppercase;
+        align: center;
+    }
+
+    span {
+        display: inline-block;
+        // max-width: 230px;
+        margin-left: auto;
+        margin-right: auto;
+
+        position: relative;
+
+        &::before, &::after {
+            content: '';
+            display: block;
+            width: 22px;
+            height: 5px;
+            background-color: $title-color;
+            opacity: .2;
+
+            position: absolute;
+        }
+
+        &::before {
+            top: $fz1/2;
+            left: -42px;
+        }
+        &::after {
+            top: $fz1/2;
+            right: -42px;
+        }
+    }
+
+
+    &--super {
+        color: $title-color;
+        font-size: $fz2;
+
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -38px;
+            height: 125px;
+            opacity: .07;
+
+            background:
+                url('/images/icons/about_header.svg')
+                center center
+                no-repeat;
+            background-size: contain;
+        }
+
+        &-works::before {
+            height: 167px;
+            top: -60px;
+            background:
+                url('/images/icons/works_header.svg')
+                center center
+                no-repeat;
+        }
+
+        span::before {
+            top: $fz2/2;
+        }
+        span::after {
+            top: $fz2/2;
+        }
+    }
+}

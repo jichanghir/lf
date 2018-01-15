@@ -1,0 +1,39 @@
+.circle {
+    width: 120px;
+    height: 120px;
+
+    position: relative;
+
+    &__svg {
+        fill: none;
+        stroke-width: 15;
+    }
+
+    &__first {
+        stroke: #dfdcd5;
+    }
+
+    &__second {
+        stroke: #1bb696;
+        transition: all 1s;
+    }
+
+    &__title {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: $green;
+        font: {
+            size: 14px;
+            weight: 500;
+        }
+        text-transform: uppercase;
+    }
+}

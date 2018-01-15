@@ -1,0 +1,33 @@
+.tabs {
+    display: flex;
+    justify-content: flex-start;
+    background-color: $ygray;
+
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 180px;
+        height: 60px;
+        border-right: 2px solid #fff;
+
+        color: $text-color;
+        text: {
+            decoration: none;
+            transform: uppercase;
+        }
+        font: {
+            size: 21px;
+        }
+
+        &.active {
+            color: $green;
+            background-color: #FFF;
+        }
+
+        &:hover {
+            color: $green;
+        }
+
+    }
+}

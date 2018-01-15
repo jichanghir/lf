@@ -1,0 +1,29 @@
+.simple-checkbox {
+
+    &__input {
+        display: none;
+
+        &:checked + label {
+            background-image: url("/images/icons/check.svg");
+        }
+    }
+
+    &__label {
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-radius: 3px;
+        background: {
+            color: $green;
+            repeat: no-repeat;
+            position: center center;
+            size: 13px 9px;
+        }
+
+        cursor: pointer;
+
+        &:hover {
+            background-color: $green-hover;
+        }
+    }
+}

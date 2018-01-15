@@ -1,0 +1,16 @@
+mixin socials(svgClass, additionalClass)
+
+    div(class=`socials ${additionalClass}`)
+
+        a(href="").socials__item
+            svg(class=`socials__svg socials__svg--${svgClass}`)
+                use(xlink:href="/build/icons/sprite.svg#vk")
+
+        a(href="").socials__item
+            svg(class=`socials__svg socials__svg--${svgClass}`)
+                use(xlink:href="/build/icons/sprite.svg#github")
+
+        a(href="").socials__item
+            svg(class=`socials__svg socials__svg--${svgClass}`)
+                use(xlink:href="/build/icons/sprite.svg#in")
+

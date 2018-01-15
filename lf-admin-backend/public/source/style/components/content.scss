@@ -1,0 +1,15 @@
+.content {
+    position: relative;
+
+    display: flex;
+
+    &__left {
+        width: 50%;
+        background-color: $bg1;
+    }
+
+    &__right {
+        width: 50%;
+        background-color: $bg2;
+    }
+}

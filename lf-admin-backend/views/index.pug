@@ -1,0 +1,76 @@
+extends ./components/layout
+
+block variables
+    - var authParallax = true;
+
+block page-title
+    | #{title}
+
+block page
+
+    .auth-page
+
+        button#flipper-rotate.flipper-rotate.auth-page__login-btn Авторизоваться
+
+        .flipper#flipper
+
+            .flipper__front
+
+                .index-form
+                    .user-main.index-form__user-main
+                        .user-main__img(style="background-image: url('/images/as.jpg')")
+                        .user-main__fio Серкин Александр
+                        .user-main__title Личный сайт веб разработчика
+
+
+                    include ./components/socials
+                    +socials('green', 'index-form__socials')
+
+                    .index-form__btns
+                        a(href="/works").index-form__link Мои работы
+                        a(href="/about").index-form__link Обо мне
+                        a(href="/blog").index-form__link Блог
+
+            .flipper__back
+
+                form(action="/api/auth" method="post").index-form
+                    .title.index-form__title
+                        span Авторизуйтесь
+
+                    .index-form__inputs
+                        .input-row.index-form__row
+                            .input-row__icon
+                                svg.input-row__svg
+                                    use(xlink:href="/build/icons/sprite.svg#login")
+                            input(placeholder="Логин" type="text" name="login" required).input-row__input
+
+                        .input-row.index-form__row
+                            .input-row__icon
+                                svg.input-row__svg
+                                    use(xlink:href="/build/icons/sprite.svg#password")
+                            input(placeholder="Пароль" type="password" name="password" required).input-row__input
+
+                        .index-form__row
+                            .index-form__captcha1
+                                .simple-checkbox
+                                    input(id="login-captcha1" type="checkbox" value="true" required).simple-checkbox__input
+                                    label(for="login-captcha1").simple-checkbox__label
+                                span Я человек
+
+                        .index-form__row
+                            .index-form__subtitle Вы точно не робот?
+
+                        .index-form__row
+                            .index-form__captcha2
+                                .simple-radio
+                                    input(id="login-captcha2-yes" type="radio" name="login-captcha2" value="yes" required).simple-radio__input
+                                    label(for="login-captcha2-yes").simple-radio__label
+                                    span.simple-radio__text Да
+                                .simple-radio
+                                    input(id="login-captcha2-not-sure" type="radio" name="login-captcha2" value="not-sure" required).simple-radio__input
+                                    label(for="login-captcha2-not-sure").simple-radio__label
+                                    span.simple-radio__text Не уверен
+
+                    .index-form__btns
+                        a(href="").index-form__link На главную
+                        button.index-form__link Войти
