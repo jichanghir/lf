@@ -1,7 +1,7 @@
 extends ./components/layout
 
 block variables
-    - var authParallax = true;
+    - var scrollParallax = true;
 
 block page-title
     | #{title}
@@ -13,19 +13,16 @@ block page
 
     section.blog-content.blog
         .blog-content__left
-            aside.blog__article-titles
-                ul.blog__article-list
-                    each article in articles
-                        li.blog__article-title
+            aside.blog__article-titles#blog__article-titles
+                ul.blog__article-list#blog__article-list
+                    each article, index in articles
+                        li(id=`${index}`).blog__article-title
                             a(href=`#${article.title}`).blog__article-link= article.title
 
-
-
-
         .blog-content__right
-            each article in articles
+            each article, index in articles
                 a(name=`${article.title}`)
-                .blog__article
+                .blog__article(data-idtitle=`${index}`)
                     .blog__title= article.title
                     .blog__date= article.date
                     .blog__text.simple-text= article.body

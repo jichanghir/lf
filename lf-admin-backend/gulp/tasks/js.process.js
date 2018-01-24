@@ -37,7 +37,7 @@ module.exports = function() {
         stats: {
           colors: true
         },
-        //devtool: 'eval'
+        devtool: 'eval'
       }, webpack))
       .pipe($.gulp.dest($.config.root + '/js'))
       //.pipe($.browserSync.stream());

@@ -50,6 +50,8 @@
         line-height: 1.62;
         text-align: right;
 
+        transition: all .5s;
+
         &.active {
             font-weight: 500;
             a {
@@ -59,7 +61,7 @@
         &.active::after {
             content: '';
             display: block;
-            height: 42px;;
+            height: 42px;
             width: 3px;
             background-color: $green;
             position: absolute;
