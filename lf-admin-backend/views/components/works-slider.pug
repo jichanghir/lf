@@ -1,0 +1,103 @@
+mixin worksSlider(works)
+
+    -
+        var worksPrev = [];
+        var worksNext = [];
+
+        for (var i = 1; i < works.length; i++) {
+            worksPrev[i] = works[i - 1];
+        }
+        worksPrev[0] = works[works.length - 1];
+
+        for (var y = works.length - 1, k = 2; y >= 2; y--, k++) {
+            worksNext[k] = works[y];
+        }
+        worksNext[0] = works[1];
+        worksNext[1] = works[0];
+
+
+    section.works-slider
+        .works-slider__link-block#link-block
+            each work in works
+                div= work
+
+        .works-slider__link--btn#link-block--btn-prev
+        .works-slider__link--btn#link-block--btn-next
+
+        .works-slider__img-block#img-block
+            each work in works
+                div= work
+
+        .works-slider__link--btn#img-block--btn-prev
+        .works-slider__link--btn#img-block--btn-next
+
+        .works-slider__nav-block
+            .works-slider__nav-slider#nav-slider--prev
+                each work in worksPrev
+                    div= work
+
+            .works-slider__nav-slider#nav-slider--next
+                each work in worksNext
+                    div= work
+
+            .works-slider__btns
+                .works-slider__btn-prev#btn-prev Prev
+                .works-slider__btn-next#btn-next Next
+
+        .works-slider__link--btn#nav-slider--prev--btn-prev
+        .works-slider__link--btn#nav-slider--prev--btn-next
+
+        .works-slider__link--btn#nav-slider--next--btn-prev
+        .works-slider__link--btn#nav-slider--next--btn-next
+
+
+    link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css")
+    link(rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css")
+    script(type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js")
+    script(type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js")
+    script(type="text/javascript" src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js")
+
+    script.
+        $('#link-block').slick({
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            prevArrow: '#link-block--btn-prev',
+            nextArrow: '#link-block--btn-next'
+        });
+
+        $('#img-block').slick({
+            infinite: true,
+            speed: 500,
+            fade: true,
+            cssEase: 'linear',
+            prevArrow: '#img-block--btn-prev',
+            nextArrow: '#img-block--btn-next'
+        });
+
+        $('#nav-slider--prev').slick({
+            infinite: true,
+            speed: 500,
+            vertical: true,
+            cssEase: 'linear',
+            prevArrow: '#nav-slider--prev--btn-prev',
+            nextArrow: '#nav-slider--prev--btn-next'
+        });
+
+        $('#nav-slider--next').slick({
+            infinite: true,
+            speed: 500,
+            vertical: true,
+            cssEase: 'linear',
+            prevArrow: '#nav-slider--next--btn-prev',
+            nextArrow: '#nav-slider--next--btn-next'
+        });
+
+        $('#btn-prev').on('click', function() {
+            $('#link-block--btn-prev, #img-block--btn-prev, #nav-slider--prev--btn-prev, #nav-slider--next--btn-next').trigger('click');
+        });
+
+        $('#btn-next').on('click', function() {
+            $('#link-block--btn-next, #img-block--btn-next, #nav-slider--prev--btn-next, #nav-slider--next--btn-prev').trigger('click');
+        });

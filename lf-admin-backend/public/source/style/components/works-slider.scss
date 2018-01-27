@@ -1,0 +1,48 @@
+.works-slider {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 100vh;
+
+    &__link-block {
+        width: 50%;
+        height: 100%;
+    }
+
+    &__img-block {
+        width: 50%;
+        height: 70%;
+    }
+
+    &__nav-block {
+        width: 50%;
+        height: 30%;
+
+        display: flex;
+        align-items: stretch;
+
+        position: relative;
+    }
+
+    &__nav-slider {
+        width: 50%;
+        z-index: 10;
+    }
+
+    &__btns {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 20;
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+
+        & > div {
+            width: 50%;
+            height: 100%;
+            text-align: center;
+        }
+    }
+}

@@ -15,7 +15,9 @@ block page
         .title.title--super.works-title__title.title--super-works
             span Мои работы
 
-    section.works-slider
+    - var works = ['Anna', 'Maria', 'Eroda', 'Kristina', 'Mayora', 'Desna'];
+    include ./components/works-slider
+    +worksSlider(works)
 
     section.works-gossip
         .title.title--super.works-gossip__title
