@@ -19,14 +19,23 @@ mixin worksSlider(works)
     section.works-slider
         .works-slider__link-block#link-block
             each work in works
-                div= work
+                .works-slider__desc-slide
+                    .title.title--super.works-slider__title
+                        span= work.title
+                    .s-description.works-slider__desc= work.description
+                    a(href=`${work.link}` target="_blank").works-slider__btn.button
+                        svg.button__img
+                            use(xlink:href="/build/icons/sprite.svg#link")
+                        span Посмотреть сайт
 
         .works-slider__link--btn#link-block--btn-prev
         .works-slider__link--btn#link-block--btn-next
 
         .works-slider__img-block#img-block
             each work in works
-                div= work
+                .works-slider__img-slide.works-slider__img-slide--img-block(
+                    style=`background-image: url("${work.img}")`
+                )
 
         .works-slider__link--btn#img-block--btn-prev
         .works-slider__link--btn#img-block--btn-next
@@ -34,15 +43,23 @@ mixin worksSlider(works)
         .works-slider__nav-block
             .works-slider__nav-slider#nav-slider--prev
                 each work in worksPrev
-                    div= work
+                    .works-slider__img-slide.works-slider__img-slide--nav-block(
+                        style=`background-image: url("${work.img}")`
+                    )
 
             .works-slider__nav-slider#nav-slider--next
                 each work in worksNext
-                    div= work
+                    .works-slider__img-slide.works-slider__img-slide--nav-block(
+                        style=`background-image: url("${work.img}")`
+                    )
 
             .works-slider__btns
-                .works-slider__btn-prev#btn-prev Prev
-                .works-slider__btn-next#btn-next Next
+                .works-slider__btn-prev#btn-prev
+                    svg
+                        use(xlink:href="/build/icons/sprite.svg#portf_arrow_down")
+                .works-slider__btn-next#btn-next
+                    svg
+                        use(xlink:href="/build/icons/sprite.svg#portf_arrow_up")
 
         .works-slider__link--btn#nav-slider--prev--btn-prev
         .works-slider__link--btn#nav-slider--prev--btn-next
