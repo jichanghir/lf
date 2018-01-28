@@ -1,0 +1,27 @@
+.blur-bg {
+    background: {
+        image: none !important;
+        color: rgba(0,0,0,0) !important;
+    }
+
+    position: relative;
+
+    & > * {
+        z-index: 20;
+        position: relative;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+
+        background-color: rgba(white, .5);
+
+        filter: blur(5px);
+    }
+}

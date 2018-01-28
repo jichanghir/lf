@@ -42,13 +42,67 @@ block page
                 img: '/images/works/liveshow.jpg',
                 link: 'http://live-show.com.ua/ru/'
             },
-        ]
+        ];
+
+        var gossips = [
+            {
+                text: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo iusto sed aspernatur voluptatibus nisi, doloremque nostrum, provident asperiores pariatur, magnam atque itaque officia natus, reiciendis laudantium. Magnam, tempora, dolor.',
+                photo: '/images/gossips/lennon.jpg',
+                fio: 'John Lennon',
+                position: 'lead'
+            },
+            {
+                text: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo iusto sed aspernatur voluptatibus nisi, doloremque nostrum, provident asperiores pariatur, magnam atque itaque officia natus, reiciendis laudantium. Magnam, tempora, dolor.',
+                photo: '/images/gossips/george.jpg',
+                fio: 'George Harrison',
+                position: 'guitar'
+            },
+            {
+                text: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo iusto sed aspernatur voluptatibus nisi, doloremque nostrum, provident asperiores pariatur, magnam atque itaque officia natus, reiciendis laudantium. Magnam, tempora, dolor.',
+                photo: '/images/gossips/paul.jpg',
+                fio: 'Paul Mccartney',
+                position: 'Bass'
+            },
+            {
+                text: ' Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi explicabo iusto sed aspernatur voluptatibus nisi, doloremque nostrum, provident asperiores pariatur, magnam atque itaque officia natus, reiciendis laudantium. Magnam, tempora, dolor.',
+                photo: '/images/gossips/ringo.png',
+                fio: 'Ringo Starr',
+                position: 'Drums'
+            }
+        ];
 
     include ./components/works-slider
     +worksSlider(works)
 
     section.works-gossip
-        .title.title--super.works-gossip__title
+        .title.title--super.title--super-about.works-gossip__title
             span Что обо мне говорят
+
+        include ./components/gossip-slider
+        +gossipSlider(gossips)
+
+        form(action="" method="post").index-form.works-gossip__form.blur-bg
+            .title.index-form__title
+                span Связаться со мной
+
+            .index-form__inputs
+                .index-form__row
+                    input(placeholder="Имя" type="text" name="login" required).s-input
+
+                .index-form__row
+                    .input-row.index-form__row
+                        input(placeholder="Email" type="text" name="login" required).s-input
+
+                .index-form__row
+                    textarea(name="" placeholder="Ваше сообщение").s-textarea
+
+
+            .index-form__btns
+                button.index-form__link Отправить
+                button.index-form__link.index-form__link--clear Очистить
+
+    include ./components/footer
+
+
 
 

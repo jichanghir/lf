@@ -1,0 +1,56 @@
+.gossip-slider {
+    width: 800px;
+    margin: 0 auto;
+
+    &__slide {
+        width: 50%;
+        display: flex !important;
+        flex-wrap: wrap;
+
+        padding: 58px 18px 70px;
+        background: {
+            image: url("/images/quote.png");
+            repeat: no-repeat;
+            position: 18px top;
+        }
+    }
+
+    &__text {
+        width: 100%;
+        margin-bottom: 27px;
+
+        color: $text-color;
+        font: {
+            size: 16px;
+        }
+        line-height: 1.62;
+    }
+
+    &__photo {
+        width: 77px;
+        height: 77px;
+        background: {
+            size: cover;
+            repeat: no-repeat;
+            position: center center;
+        }
+        border-radius: 50%;
+        margin-right: 22px;
+    }
+
+    &__about {
+        width: calc(100% - 99px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        color: $green;
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    &__fio {
+        font-weight: 600;
+    }
+}

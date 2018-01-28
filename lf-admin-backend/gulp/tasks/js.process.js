@@ -17,11 +17,11 @@ module.exports = function() {
               warnings: false
             }
           }),
-          new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            "window.jQuery": "jquery"
-          })
+          // new webpack.ProvidePlugin({
+          //   $: "jquery",
+          //   jQuery: "jquery",
+          //   "window.jQuery": "jquery"
+          // })
         ],
         module: {
           loaders: [
