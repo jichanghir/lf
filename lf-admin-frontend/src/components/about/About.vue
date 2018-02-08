@@ -6,13 +6,23 @@
                 v-for="(item, index) in skills"
                 :key="index"
                 :skillObj="item"
-                @onNewSkill="handleAddNewSkill"
-                @onDeleteSkill="handleDeleteSkill"
-                @onSaveSkillPercent="handleSaveSkillPercent"
+                @addNewSkill="addNewSkill"
+                @deleteSkill="deleteSkill"
+                @saveSkillPercent="saveSkillPercent"
             )
+            .skill
+                input(
+                    type="text"
+                    v-model="newSkillType"
+                    placeholder="Имя раздела"
+                )
+                c-button(
+                    text="Добавить раздел"
+                    @click="onAddSkillType"
+                ).skills__add-category
         c-button(
             text="Сохранить"
-            @click="handleSaveNotes"
+            @click="saveSkills"
         )
 </template>
 
@@ -24,34 +34,36 @@ import Button from '../ui/button/Button';
 export default {
     props: {},
     data(){
-        return {}
+        return {
+            newSkillType: ''
+        }
     },
     computed: {
         ...mapGetters(['skills'])
     },
     methods: {
-        ...mapActions(['controllerFetchSkills']),
-        ...mapMutations([
-            'controllerAddNewSkill',
-            'controllerDeleteSkill',
-            'controllerSaveSkills',
-            'controllerSaveSkill'
+        ...mapActions([
+            'fetchSkills',
+            'saveSkills'
         ]),
-        handleAddNewSkill(skillType, newSkill) {
-            this.controllerAddNewSkill({skillType, newSkill});
-        },
-        handleDeleteSkill(skillType, skillId) {
-            this.controllerDeleteSkill({skillType, skillId});
-        },
-        handleSaveNotes() {
-            this.controllerSaveSkills();
-        },
-        handleSaveSkillPercent(skillType, skillId, value) {
-            this.controllerSaveSkill({skillType, skillId, value});
+        ...mapMutations([
+            'addNewSkill',
+            'deleteSkill',
+            'saveSkillPercent',
+            'addSkillType'
+        ]),
+        onAddSkillType() {
+            if (this.newSkillType) {
+                this.addSkillType(this.newSkillType);
+                this.newSkillType = '';
+            }
+            else {
+                alert('skill category name are required')
+            }
         }
     },
     created() {
-        this.controllerFetchSkills();
+        this.fetchSkills();
     },
     components: {
         skill: Skill,

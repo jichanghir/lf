@@ -3,7 +3,6 @@ import config from '../config';
 
 export default {
     state: {
-        _skillsId: 0, // нужен для поиска значения в базе
         skills: []
     },
     getters: {
@@ -12,67 +11,75 @@ export default {
         }
     },
     mutations: {
-        controllerAddNewSkill(state, {skillType, newSkill} ) {
+        addNewSkill(state, {skillType, newSkill} ) {
             state.skills.forEach((obj) => {
                 if (obj.skillType === skillType) {
                     obj.skills.push(newSkill);
                 }
             });
         },
-        controllerDeleteSkill(state, {skillType, skillId}) {
+
+        deleteSkill(state, {skillType, skillId}) {
             state.skills.forEach((obj) => {
                 if (obj.skillType === skillType) {
                     obj.skills = obj.skills.filter((skill) => skill.id !== skillId);
                 }
             });
         },
-        controllerSaveSkills(state) {
+
+        saveSkillPercent(state, {skillType, skillId, value}) {
+            state.skills.forEach((obj) => {
+                if (obj.skillType === skillType) {
+                    obj.skills.forEach((skill) => {
+                        if (+skill.id === +skillId) {
+                            skill.percent = +value;
+                        }
+                    });
+                }
+            });
+        },
+
+        addSkillType(state, newSkillType) {
+            state.skills.push({
+                skillType: newSkillType,
+                skills: []
+            });
+        },
+
+        initStateSkills(state, baseSkills) {
+            if (baseSkills) {
+                baseSkills.forEach((responsesSkills) => {
+                    responsesSkills.id = Date.now() * Math.random();
+                    responsesSkills.skills.forEach((responsesSkill) => {
+                        responsesSkill.id = Date.now() * Math.random();
+                    });
+                });
+                state.skills = baseSkills;
+            }
+        }
+    },
+    actions: {
+        fetchSkills({state, rootGetters, commit}) {
+
+            axios.get(`${config.API_URL}/api/getSkills`)
+            .then((response) => {
+                commit('initStateSkills', response.data.result.skills);
+            })
+            .catch((error) => console.error(error) );
+
+        },
+
+        saveSkills({state}) {
             axios.post(`${config.API_URL}/api/setSkills`,
                 {
-                    _id: state._skillsId,
                     skills: state.skills
                 })
             .then((response) => {
                 console.log("response", response);
             })
             .catch(function (error) {
-                console.log(error);
+                console.error(error);
             });
         },
-        controllerSaveSkill(state, {skillType, skillId, value}) {
-
-            state.skills.forEach((obj) => {
-                if (obj.skillType === skillType) {
-                    obj.skills.forEach((skill) => {
-                        if (+skill.id === +skillId) {
-                            console.log("skill", skill);
-                            skill.percent = +value;
-                        }
-                    });
-                }
-            });
-        }
-    },
-    actions: {
-        controllerFetchSkills({state, rootGetters}) {
-
-            axios.get(`${config.API_URL}/api/getSkills`)
-            .then((response) => {
-                let skillsWithIds = response.data.result.skills;
-                skillsWithIds.forEach((responsesSkills) => {
-                    responsesSkills.id = Date.now() * Math.random();
-                    responsesSkills.skills.forEach((responsesSkill) => {
-                        responsesSkill.id = Date.now() * Math.random();
-                    });
-                });
-                console.log('skillsWithIds', skillsWithIds);
-                state.skills = skillsWithIds;
-                state._skillsId = response.data.result._id;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-
-        }
     }
 }

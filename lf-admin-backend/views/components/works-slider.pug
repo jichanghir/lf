@@ -4,16 +4,24 @@ mixin worksSlider(works)
         var worksPrev = [];
         var worksNext = [];
 
-        for (var i = 1; i < works.length; i++) {
-            worksPrev[i] = works[i - 1];
-        }
-        worksPrev[0] = works[works.length - 1];
+        if (works.length > 1) {
+            for (var i = 1; i < works.length; i++) {
+                worksPrev[i] = works[i - 1];
+            }
+            worksPrev[0] = works[works.length - 1];
 
-        for (var y = works.length - 1, k = 2; y >= 2; y--, k++) {
-            worksNext[k] = works[y];
+            for (var y = works.length - 1, k = 2; y >= 2; y--, k++) {
+                worksNext[k] = works[y];
+            }
+            worksNext[0] = works[1];
+            worksNext[1] = works[0];
         }
-        worksNext[0] = works[1];
-        worksNext[1] = works[0];
+        else {
+            worksPrev = works;
+            worksNext = works;
+        }
+
+
 
 
     section.works-slider
@@ -21,8 +29,8 @@ mixin worksSlider(works)
             each work in works
                 .works-slider__desc-slide
                     .title.title--super.works-slider__title
-                        span= work.title
-                    .s-description.works-slider__desc= work.description
+                        span= work.name
+                    .s-description.works-slider__desc= work.technologies
                     a(href=`${work.link}` target="_blank").works-slider__btn.button
                         svg.button__img
                             use(xlink:href="/build/icons/sprite.svg#link")

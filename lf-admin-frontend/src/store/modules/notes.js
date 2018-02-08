@@ -11,7 +11,10 @@ export default {
         }
     },
     mutations: {
-        addNewNotes(state, newNote) {
+
+    },
+    actions: {
+        addArticle(state, newNote) {
 
             const requestData = {
                 note_name: newNote.note_name,
@@ -29,8 +32,5 @@ export default {
             .catch((err) => console.log(err));
 
         }
-    },
-    actions: {
-
     }
 }

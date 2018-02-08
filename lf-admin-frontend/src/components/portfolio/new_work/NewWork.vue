@@ -15,6 +15,12 @@
                     v-model="technologies"
                 )
             .form__row
+                input(
+                    type="text"
+                    placeholder="Ссылка на сайт"
+                    v-model="link"
+                )
+            .form__row
                 .upload-work
                     .upload-work__img
                     c-input-file(
@@ -22,14 +28,14 @@
                         text="Загрузить картинку"
                     )
 
-
                 c-button(
                     text="Добавить"
-                    @click="handleAdd"
+                    @click="handleSave"
                 )
 </template>
 
 <script>
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import Button from '../../ui/button/Button';
 import InputFile from '../../ui/input-file/InputFile';
 
@@ -38,21 +44,48 @@ export default {
     data(){
         return {
             name: '',
-            technologies: ''
+            technologies: '',
+            link: '',
+            file: {}
         }
     },
     methods: {
+        ...mapMutations([
+            'saveFile'
+        ]),
+        ...mapActions([
+            'saveWork'
+        ]),
         handleFile(file) {
-            // todo: продумать как будет загружаться файл и нужен ли он как required
-            console.log("file", file);
-        },
-        handleAdd() {
-            // todo: Добавить нормальную валидацию
-            const data = {
-                work_name: this.name,
-                work_technologies: this.technologies
+            if (file.type === 'image/gif' ||
+                file.type === 'image/jpeg' ||
+                file.type === 'image/png')
+            {
+                this.file = file;
             }
-            console.log('data', data);
+            else {
+                alert('supported formats: gif, jpeg, png');
+            }
+        },
+        handleSave() {
+            if (this.name && this.technologies && this.link && this.file.name) {
+                const data = {
+                    name: this.name,
+                    technologies: this.technologies,
+                    link: this.link,
+                    file: this.file
+                };
+
+                this.name = '',
+                this.technologies = '';
+                this.link = '';
+                this.file = {};
+
+                this.saveWork(data);
+            }
+            else {
+                alert('All fields are required');
+            }
         }
     },
     components: {

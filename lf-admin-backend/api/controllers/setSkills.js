@@ -2,18 +2,23 @@ const mongoose = require('mongoose');
 const Skills = require('../models/skills');
 
 module.exports = (req) => {
-    return new Promise((resolve, reject) => {
-        let newSkills = {};
-        newSkills.skills = req.body.skills;
+    return new Promise((resolve) => {
 
-        Skills.update({ _id: req.body._id }, newSkills, (err) => {
-            if (err) {
-                reject(err)
+        Skills.findOne()
+        .then((result) => {
+            if (result) {
+                result.set(req.body);
+
+                return result;
             }
             else {
-                resolve('skills Saved');
+                const cards = new Skills(req.body);
+                return cards;
             }
-        });
+        })
+        .then((skills) => skills.save())
+        .then(() => resolve('skills Saved'))
+        .catch((err) => {throw new Error(err)});
     });
 }
 

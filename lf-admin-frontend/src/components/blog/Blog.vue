@@ -2,7 +2,7 @@
     div
         .page-title Страница Блог
         new-note(
-            @onSaveNote="handleSaveNewNote"
+            @onSaveNote="addArticle"
         )
 
 </template>
@@ -17,10 +17,7 @@ export default {
         return {}
     },
     methods: {
-        ...mapMutations(['addNewNotes']),
-        handleSaveNewNote(data) {
-            this.addNewNotes(data);
-        }
+        ...mapActions(['addArticle'])
     },
     components: {
         newNote: NewNote

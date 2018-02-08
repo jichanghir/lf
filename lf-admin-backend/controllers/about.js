@@ -6,7 +6,6 @@ module.exports.page = (req, res) => {
 
     getSkills()
     .then((result) => {
-        console.log("result", result);
         res.render('about', {
             title: 'About',
             skills: result.skills

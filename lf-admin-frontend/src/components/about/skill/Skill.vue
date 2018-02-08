@@ -11,23 +11,23 @@
                     input(
                         type="text"
                         :value="item.percent"
-                        @blur="handleSavePercent(skillObj.skillType, item.id, $event)"
-                        @keyup.enter="handleSavePercent(skillObj.skillType, item.id, $event)"
+                        @blur="saveSkillPercent(skillObj.skillType, item.id, $event)"
+                        @keyup.enter="saveSkillPercent(skillObj.skillType, item.id, $event)"
                     )
                 td.skill__percent %
                 td.skill__delete
                     button(
-                        @click="handleDeleteSkill(skillObj.skillType, item.id)"
+                        @click="deleteSkill(skillObj.skillType, item.id)"
                     ).skill__delete-btn x
         .skill__add-new
             input(
                 type="text"
                 v-model="newSkillName"
-                placeholder="Введите новое имя"
+                placeholder="Имя скила"
             )
             cButton(
                 text="Добавить"
-                @click="handleAddNewSkill(skillObj.skillType)"
+                @click="addNewSkill(skillObj.skillType)"
             ).skill__add-btn
 
 </template>
@@ -48,7 +48,7 @@ export default {
         }
     },
     methods: {
-        handleAddNewSkill(skillType) {
+        addNewSkill(skillType) {
 
             if (this.newSkillName) {
                 const newSkill = {
@@ -57,7 +57,7 @@ export default {
                     "percent": 0
                 }
 
-                this.$emit('onNewSkill', skillType, newSkill);
+                this.$emit('addNewSkill', {skillType, newSkill});
 
                 this.newSkillName = '';
             }
@@ -66,12 +66,12 @@ export default {
             }
 
         },
-        handleDeleteSkill(skillType, skillId) {
-            this.$emit('onDeleteSkill', skillType, skillId);
+        deleteSkill(skillType, skillId) {
+            this.$emit('deleteSkill', {skillType, skillId});
         },
-        handleSavePercent(skillType, skillId, event) {
+        saveSkillPercent(skillType, skillId, event) {
             const value = event.target.value;
-            this.$emit('onSaveSkillPercent', skillType, skillId, value)
+            this.$emit('saveSkillPercent', {skillType, skillId, value})
         }
     },
     components: {

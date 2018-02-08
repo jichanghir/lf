@@ -3,7 +3,6 @@ const getArticles = require('../api/controllers/getArticles.js');
 module.exports.page = (req, res) => {
     getArticles()
     .then((result) => {
-        console.log("result", result);
         res.render('blog',{
            title: 'Blog',
            articles: result

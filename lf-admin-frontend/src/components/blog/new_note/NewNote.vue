@@ -41,8 +41,6 @@ export default {
 
         handleSaveNote(...args) {
             if (this.noteName && this.noteDate && this.noteText) {
-                console.log("this.noteDate", new Date(this.noteDate));
-
                 const data = {
                     note_id: Date.now() * Math.random(),
                     note_name: this.noteName,
@@ -50,6 +48,10 @@ export default {
                     note_text: this.noteText
                 };
                 this.$emit('onSaveNote', data);
+
+                this.noteName = '';
+                this.noteDate = '';
+                this.noteText = '';
             }
             else {
                 alert('Все поля должны быть заполнены');
