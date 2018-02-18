@@ -79,3 +79,53 @@
         }
     }
 }
+
+@media screen and (min-width: 1800px) {
+    .title {
+        &--super {
+            &-about {
+                position: absolute;
+                right: calc(100% + 70px);
+                top: 0;
+                white-space: nowrap;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    $fz1: 35px;
+
+    .title {
+        &--super {
+            font-size: $fz1;
+
+            &-about::before {
+                top: -50px;
+                width: 70%;
+                margin: 0 15%;
+            }
+        }
+
+        span {
+            &::before,
+            &::after {
+                top: $fz1/2;
+            }
+        }
+
+        &--sec-adaptive {
+            font-size: 21px;
+            span {
+                &::before,
+                &::after {
+                    top: 7.5px;
+                }
+
+                max-width: 60%;
+            }
+        }
+    }
+
+
+}

@@ -1,19 +1,20 @@
 .top-section {
     position: relative;
     height: 100vh;
+    //min-height: 650px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // background: {
-    //     image: url('/images/top-section-bg-test.png');
-    //     position: center center;
-    //     repeat: no-repeat;
-    //     size: cover;
-    // }
+    background: {
+        image: url('/images/bg.png');
+        position: center center;
+        repeat: no-repeat;
+        size: cover;
+    }
 
     &__user-main {
-        margin-top: 90px;
-        margin-bottom: 120px;
+        // margin-top: 90px;
+        // margin-bottom: 120px;
     }
 
     &__down {
@@ -59,5 +60,17 @@
     //         center center
     //         no-repeat;
     //     background-size: auto;
+    // }
+}
+
+@media screen and (max-width: 1199px) {
+    // .top-section {
+    //     height: 650px;
+    // }
+}
+
+@media screen and (max-width: 767px) {
+    // .top-section {
+    //     height: 100vh;
     // }
 }

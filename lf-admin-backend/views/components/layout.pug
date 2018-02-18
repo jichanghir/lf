@@ -30,7 +30,8 @@ html
                 .bg-parallax__container#bg-parallax
                     each i in [10,9,8,7,6,5,4,3,2,1]
                         .bg-parallax__layer
-                            img(src=`/images/parallax/l${i}.png`, alt="").bg-parallax__img
+                            //- img(src=`/images/parallax/l${i}.png`, alt="").bg-parallax__img
+                            img(src="", alt="").bg-parallax__img
             block page
 
         else if scrollParallax
@@ -38,7 +39,8 @@ html
                 .bg-parallax__container#bg-parallax-scroll
                     each i in [10,9,8,7,6,5,4,3,2,1]
                         .bg-parallax__layer
-                            img(src=`/images/parallax/l${i}.png`, alt="").bg-parallax__img
+                            //- img(src=`/images/parallax/l${i}.png`, alt="").bg-parallax__img
+                            img(src="", alt="").bg-parallax__img
             block page
 
         else

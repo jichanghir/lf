@@ -9,7 +9,7 @@ block page-title
 block page
 
     include ./components/top-section
-    +topSection('blog')
+    +topSection('blog', 'Статьи которые я написал')
 
     section.blog-content.blog
         .blog-content__left
@@ -18,6 +18,8 @@ block page
                     each article, index in articles
                         li(id=`${index}`).blog__article-title
                             a(href=`#${article.title}`).blog__article-link= article.title
+
+                .blog__article-adaptive-btn#blog__article-adaptive-btn
 
         .blog-content__right
             each article, index in articles

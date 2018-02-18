@@ -1,5 +1,5 @@
 .utility-block {
-    padding: 15px 40px;
+    padding: 30px 40px;
 
     &__title {
         margin-bottom: 40px;
@@ -7,5 +7,19 @@
 
     &__simple-text {
         margin-bottom: 56px;
+    }
+}
+
+
+@media screen and (max-width: 1199px) {
+    .utility-block {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .utility-block {
+        padding: 50px 10px;
+        text-align: left;
     }
 }

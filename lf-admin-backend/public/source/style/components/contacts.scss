@@ -40,3 +40,13 @@
         color: $text-color;
     }
 }
+
+@media screen and (max-width: 380px) {
+    .contacts {
+        width: 100%;
+
+        &__form {
+            padding: 35px 10px;
+        }
+    }
+}

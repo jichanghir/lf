@@ -38,3 +38,14 @@
         opacity: .8;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .user-main {
+        &__fio {
+            font-size: 21px;
+        }
+        &__title {
+            font-size: 14px;
+        }
+    }
+}

@@ -3,7 +3,7 @@ $(function() {
     const DOC = document;
     const $articles = $('.blog__article');
     const articles = $articles.toArray();
-    const $titlesList = $('#blog__article-list');
+    const $articlesList = $('#blog__article-list');
     const $articleTitles = $('#blog__article-titles');
     let activeArticleId = null;
 
@@ -14,7 +14,6 @@ $(function() {
             top: box.top + pageYOffset,
             left: box.left + pageXOffset
         };
-
     }
 
     function setArticleActive() {
@@ -42,35 +41,47 @@ $(function() {
         }
     }
 
-    function setActiveTitle() {
+    function setArticleChords() {
         const elemChords = getCoords($articleTitles[0]);
 
         if (WIN.pageYOffset >= elemChords.top - 30) {
 
-            $titlesList.css({
+            $articlesList.css({
                 'position': 'fixed',
                 'top': 30 + 'px',
                 'left': elemChords.left + 'px'
             })
         }
         else {
-            $titlesList.css({
+            $articlesList.css({
                 'position': 'static'
             })
         }
     }
 
-    if ($titlesList.length && $articles.length) {
-        $titlesList.css({
-            'width': $titlesList.outerWidth()
+    if ($articlesList.length && $articles.length) {
+        $articlesList.css({
+            'width': $articlesList.outerWidth()
         });
 
         $(WIN).scroll(() => {
-            setActiveTitle();
+            WIN.screen.width >= 1200 && setArticleChords();
             setArticleActive();
         });
 
-        setActiveTitle();
+        WIN.screen.width >= 1200 && setArticleChords();
         setArticleActive();
+
+        if (WIN.screen.width < 1200) {
+            $('#blog__article-adaptive-btn').on('click', () => {
+                $('#blog__article-titles').toggleClass('adaptive-show');
+
+            });
+            $('body').on('click', (e) => {
+                if (!$(e.target).closest('#blog__article-titles').length || $(e.target).hasClass('blog__article-link')) {
+                    $('#blog__article-titles').removeClass('adaptive-show');
+                }
+            });
+        }
     }
 });

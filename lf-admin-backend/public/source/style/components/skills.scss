@@ -24,3 +24,30 @@
         margin: 0 40px 40px 0;
     }
 }
+
+@media screen and (max-width: 1199px) {
+    .skills {
+        &__items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        &__item {
+            margin: 0 19px 40px 19px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .skills {
+        text-align: center;
+
+        &__title {
+            font-size: 22px;
+        }
+
+        &__item {
+            margin: 0 10px 40px 10px;
+        }
+    }
+}

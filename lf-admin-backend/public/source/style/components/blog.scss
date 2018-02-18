@@ -2,14 +2,15 @@
 
     &__article {
         padding-bottom: 70px;
-    }
 
-    &__article:not(:last-child) {
-        border-bottom: 5px solid rgba($title-color, 0.07);
-        margin-bottom: 64px;
+        &:not(:last-child) {
+            border-bottom: 5px solid rgba($title-color, 0.07);
+            margin-bottom: 64px;
+        }
     }
 
     &__title {
+        color: $text-color;
         font-family: 'bernier-regular';
         font-size: 35px;
 
@@ -28,13 +29,14 @@
 
     &__article-titles {
         padding-right: 100px;
-
+        position: relative;
     }
 
     &__article-list {
         list-style: none;
         display: flex;
         flex-direction: column;
+        z-index: 300;
     }
 
     &__article-title {
@@ -68,7 +70,6 @@
             right: 0;
             top: calc(50% - 21px);
         }
-
     }
 
     &__article-link {
@@ -77,6 +78,89 @@
 
         &:hover {
             color: $green !important;
+        }
+    }
+
+    &__article-adaptive-btn {
+        position: absolute;
+        right: -20px;
+        top: calc(50% - 30px);
+        width: 60px;
+        height: 60px;
+        background-color: $green;
+        border-radius: 50%;
+        z-index: 200;
+        cursor: pointer;
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .blog {
+        &__article-titles {
+            position: fixed;
+            left: -284px;
+            top: 0;
+            z-index: 100;
+            background-color: $green;
+            min-height: 100%;
+            width: 284px;
+            padding-right: 0;
+            margin-bottom: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            transition: all .5s;
+
+            &.adaptive-show {
+                left: 0;
+            }
+        }
+
+        &__article-title {
+            &.active {
+                font-weight: 500;
+                a {
+                    color: white !important;
+                }
+            }
+            &.active::after {
+                display: none;
+            }
+        }
+
+        &__article-link {
+            color: rgba(white, .7);
+
+            &:hover {
+                color: white !important;
+            }
+        }
+
+        &__article-adaptive-btn {
+            display: block;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .blog {
+        &__title {
+            font-size: 21px;
+            margin-bottom: 20px;
+        }
+        &__date {
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        &__article {
+            padding-bottom: 27px;
+
+            &:not(:last-child) {
+                margin-bottom: 25px;
+            }
         }
     }
 }

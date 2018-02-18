@@ -13,3 +13,14 @@
         background-color: $bg2;
     }
 }
+
+@media screen and (max-width: 1199px) {
+    .content {
+        flex-direction: column;
+
+        &__left,
+        &__right {
+            width: 100%;
+        }
+    }
+}

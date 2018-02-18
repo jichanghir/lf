@@ -9,7 +9,7 @@ block page-title
 block page
 
     include ./components/top-section
-    +topSection('about')
+    +topSection('about', 'Личный сайт вэб разработчика')
 
     section.content
         .content__left
@@ -17,13 +17,13 @@ block page
                 .title.title--super.title--super-about.about-block__title
                     span Обо мне
                 .about-block__photo(style="background-image: url('/images/as.jpg')")
-                .title.about-block__title
+                .title.about-block__title.title--sec-adaptive
                     span Кто я
-                .simple-text Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                .simple-text.about-block__simple-text Я веб разработчик из Новосибирска. Мне 27 лет. Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты. Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
 
         .content__right
             .utility-block
-                .title.about-block__title.utility-block__title
+                .title.utility-block__title.title--sec-adaptive
                     span Чем я могу быть вам полезен
                 .simple-text.utility-block__simple-text Больше всего меня привлекет Frontend разработка, но я также знаком и могу решать не сложные задачи на Backend. Но давайте по порядку.
 
