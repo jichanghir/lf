@@ -6,8 +6,11 @@
     justify-content: center;
 
     padding-top: 147px;
+    padding-bottom: 80px;
 
-    overflow-x: auto;
+    min-height: 650px;
+
+    // overflow-x: auto;
 
     &__login-btn {
         position: absolute;
@@ -31,6 +34,33 @@
         &:hover {
             background-color: white;
             color: $green;
+        }
+    }
+
+    &__footer {
+        position: absolute;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+
+        color: rgba(white, .7);
+        font: {
+            size: 14px;
+            weight: 300;
+        }
+        text-align: center;
+        line-height: 1.5;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .auth-page {
+        padding-top: 85px;
+
+        &__login-btn {
+            right: calc(50% - 90px);
+            font-size: 14px;
+            line-height: 39px;
         }
     }
 }

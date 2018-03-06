@@ -16,3 +16,25 @@
     }
 
 }
+
+
+@media screen and (max-width: 1199px) {
+    .works-gossip {
+        padding: 45px 10px 155px;
+
+        &__title {
+            font-size: 49px;
+            margin-bottom: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .works-gossip {
+        padding: 55px 10px 100px;
+
+        &__title {
+            font-size: 35px;
+        }
+    }
+}

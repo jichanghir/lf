@@ -25,6 +25,13 @@
     .about-block {
         margin: 0 20px 0 auto;
         position: relative;
+
+        &__title--super {
+            position: absolute !important;
+            right: calc(100% + 70px);
+            top: 0;
+            white-space: nowrap;
+        }
     }
 }
 

@@ -6,9 +6,7 @@
         const parallaxContainer = DOC.getElementById('bg-parallax-scroll');
         const topSection = DOC.getElementById('top-section');
 
-        //const docHeight = DOC.documentElement.clientHeight > 650 ? DOC.documentElement.clientHeight : 650;
-        const docHeight = DOC.documentElement.clientHeight;
-
+        const docHeight = DOC.documentElement.clientHeight > 550 ? DOC.documentElement.clientHeight : 550;
 
         if (topSection) {
             topSection.style.backgroundImage = 'none';

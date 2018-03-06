@@ -97,3 +97,25 @@
         justify-content: space-around;
     }
 }
+
+@media screen and (max-width: 767px) {
+    .index-form {
+        width: 300px;
+
+        &__title {
+            font-size: 21px !important;
+            margin-bottom: 25px;
+
+            span {
+                &::before,
+                &::after {
+                    top: 8.5px !important;
+                }
+            }
+        }
+
+        &__link {
+            font-size: 14px;
+        }
+    }
+}

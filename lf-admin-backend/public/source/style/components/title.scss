@@ -80,18 +80,18 @@
     }
 }
 
-@media screen and (min-width: 1800px) {
-    .title {
-        &--super {
-            &-about {
-                position: absolute;
-                right: calc(100% + 70px);
-                top: 0;
-                white-space: nowrap;
-            }
-        }
-    }
-}
+// @media screen and (min-width: 1800px) {
+//     .title {
+//         &--super {
+//             &-about {
+//                 position: absolute;
+//                 right: calc(100% + 70px);
+//                 top: 0;
+//                 white-space: nowrap;
+//             }
+//         }
+//     }
+// }
 
 @media screen and (max-width: 767px) {
     $fz1: 35px;

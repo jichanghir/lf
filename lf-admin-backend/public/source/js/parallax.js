@@ -2,31 +2,37 @@
     const DOC = document;
     const WIN = window;
 
-    const parallaxContainer = DOC.getElementById('bg-parallax');
-    if (parallaxContainer) {
-        const layers = parallaxContainer.children;
+    if (WIN.screen.width >= 1200) {
 
-        const moveLayers = (e) => {
-            const initialX = (window.innerWidth / 2) - e.pageX;
-            const initialY = (window.innerHeight / 2) - e.pageY;
+        const parallaxContainer = DOC.getElementById('bg-parallax');
+        if (parallaxContainer) {
+            const layers = parallaxContainer.children;
 
-            [].slice.call(layers).forEach((layer, index) => {
-                const divider = index / 100;
-                const posX = initialX * divider;
-                const posY = initialY * divider;
+            const moveLayers = (e) => {
+                const initialX = (window.innerWidth / 2) - e.pageX;
+                const initialY = (window.innerHeight / 2) - e.pageY;
 
-                const transformString = `translate(${posX}px, ${posY}px)`;
-                layer.style.transform = transformString;
+                [].slice.call(layers).forEach((layer, index) => {
+                    const divider = index / 100;
+                    const posX = initialX * divider;
+                    const posY = initialY * divider;
+
+                    const transformString = `translate(${posX}px, ${posY}px)`;
+                    layer.style.transform = transformString;
+                });
+            };
+
+            WIN.addEventListener('mousemove', moveLayers);
+
+            DOC.addEventListener('DOMContentLoaded', () => {
+                [].slice.call(layers).forEach((layer, index) => {
+                    const img = layer.children;
+                    img[0].setAttribute('src', `/images/parallax/lr${index+1}.png`);
+
+                    const width = DOC.documentElement.clientWidth * 1.2;
+                    layer.firstElementChild.style.width = width + 'px';
+                });
             });
-        };
-
-        WIN.addEventListener('mousemove', moveLayers);
-
-        DOC.addEventListener('DOMContentLoaded', () => {
-            [].slice.call(layers).forEach((layer, index) => {
-                const width = DOC.documentElement.clientWidth * 1.2;
-                layer.firstElementChild.style.width = width + 'px';
-            });
-        });
+        }
     }
 };

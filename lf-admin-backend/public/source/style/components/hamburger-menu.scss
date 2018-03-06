@@ -78,9 +78,12 @@
 
         transition-duration: 0.5s;
 
+        position: relative;
+
         &:hover {
-            span::after {
-                width: 50%;
+            span::after,
+            span::before {
+                width: 25px;
                 background-color: white;
             }
         }
@@ -88,14 +91,22 @@
 
     &__link-text {
         display: inline-block;
-        &:after {
+        &:after,
+        &:before {
             content: '';
             display: block;
-            margin: auto;
+            position: absolute;
+            top: calc(50% - 2px);
             height: 3px;
             width: 0px;
             background: transparent;
             transition: width 300ms ease, background-color 300ms ease;
+        }
+        &:after {
+            left: calc(100% + 20px);
+        }
+        &:before {
+            right: calc(100% + 20px);
         }
     }
 
@@ -168,6 +179,14 @@
     }
     100% {
         transform: translateY(-100%);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .hamburger-menu {
+        &__nav-link {
+            font-size: 40px;
+        }
     }
 }
 

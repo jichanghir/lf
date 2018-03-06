@@ -66,8 +66,6 @@
 
             cursor: pointer;
 
-
-
             svg {
                 fill: white;
                 opacity: .9;
@@ -134,5 +132,72 @@
 
     &__desc {
         margin-bottom: 39px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .works-slider {
+        flex-wrap: nowrap;
+        height: auto;
+
+        &__link-block,
+        &__img-block,
+        &__nav-block {
+            width: 100%;
+            height: auto;
+        }
+
+        &__link-block {
+            order: 2;
+        }
+        &__img-bloc {
+            order: 1;
+        }
+        &__nav-block {
+            order: 3;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .works-slider {
+        &__img-block {
+            padding: 24px;
+        }
+
+        &__img-slide {
+            &--img-block {
+                height: 250px !important;
+            }
+            &--nav-block {
+                height: 93px !important;
+            }
+        }
+
+        &__link-block {
+            padding: 30px 0;
+        }
+
+        &__title {
+            font-size: 21px;
+            padding: 0 63px;
+
+            span {
+                &::before,
+                &::after {
+                    top: 8.5px;
+                }
+            }
+        }
+
+        &__desc-slide {
+            justify-content: space-between;
+        }
+
+        &__nav-block {
+            height: 93px;
+        }
+
+
     }
 }

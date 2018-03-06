@@ -54,3 +54,17 @@
         font-weight: 600;
     }
 }
+
+@media screen and (max-width: 1199px) {
+    .gossip-slider {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .gossip-slider {
+        &__slide {
+            background-position: center top;
+        }
+    }
+}
