@@ -6,7 +6,7 @@
   "scripts": {
     "run-back": "cd lf-admin-backend && npm i && npm start",
     "run-front": "cd lf-admin-frontend && npm i && npm run prod",
-    "start": "npm i parallelshell && parallelshell 'npm run run-back' 'npm run run-front'"
+    "start": "npm run run-back"
   },
   "repository": {
     "type": "git",

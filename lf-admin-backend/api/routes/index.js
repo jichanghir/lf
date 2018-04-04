@@ -51,9 +51,11 @@ router.post('/addArticle', (req, res) => {
 router.post('/auth', (req, res) => {
     if ((req.body.login && req.body.password) &&
         (req.body.login === 'admin' && req.body.password === 'admin')
-        )
-    {
-        res.redirect('http://localhost:8080/');
+    ){
+        req.session.isAdmin = true;
+        console.log('req.session', req.session);
+        res.redirect('/admin');
+        //res.redirect('http://localhost:8080/');
     }
     else {
         res.redirect('/');

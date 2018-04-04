@@ -1,20 +1,30 @@
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var cors = require('cors');
+const express = require('express');
+const path = require('path');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const session = require('express-session')
 
 // DB connection model
 require('./api/models/db');
 
-var index = require('./routes/index');
-var about = require('./routes/about');
-var blog = require('./routes/blog');
-var works = require('./routes/works');
+const index = require('./routes/index');
+const about = require('./routes/about');
+const blog = require('./routes/blog');
+const works = require('./routes/works');
 
-var Api = require('./api/routes/index');
+const Api = require('./api/routes/index');
+
+const isAdmin = (req, res, next) => {
+  console.log('req.session', req.session);
+  console.log("req.session.isAdmin", req.session.isAdmin);
+  if (req.session.isAdmin) {
+     return next();
+  }
+  res.redirect('/');
+};
 
 var app = express();
 
@@ -29,6 +39,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'saloft',
+  resave: false,
+  saveUninitialized: false
+}))
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
@@ -37,6 +52,9 @@ app.use('/blog', blog);
 app.use('/works', works);
 
 app.use('/api', Api);
+app.use('/admin', isAdmin, function(req, res) {
+  res.sendFile(path.resolve(__dirname, './public', 'admin.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
