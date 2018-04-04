@@ -27,6 +27,3 @@ process.on('SIGINT', () => {
         process.exit(0);
     });
 });
-
-//const Article = require('./article');
-mongodb://<dbuser>:<dbpassword>@ds235169.mlab.com:35169/heroku_7cfl8bnd
