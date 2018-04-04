@@ -31,3 +31,26 @@
 
     }
 }
+
+@media screen and (max-width: 767px) {
+    .tabs {
+        flex-direction: column;
+
+        &__link {
+            width: 100%;
+            border-right: 0px;
+
+            font-size: 14px;
+
+            &:hover,
+            &.active {
+                background-color: white;
+            }
+
+            &:not(:last-child) {
+                border-bottom: 2px solid #fff;
+            }
+        }
+    }
+}
+

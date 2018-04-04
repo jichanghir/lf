@@ -18,6 +18,10 @@
 
     &__input {
         width: 48px;
+
+        input {
+            font-size: 12px;
+        }
     }
 
     &__percent {
@@ -27,6 +31,7 @@
 
     &__add-new {
         margin-top: 10px;
+        max-width: 215px;
     }
 
     &__add-btn {
@@ -41,5 +46,12 @@
         &:hover {
             transform: scale(1.2);
         }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .skill {
+        margin-right: 0px;
+        width: 100%;
     }
 }

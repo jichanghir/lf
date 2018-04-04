@@ -12,4 +12,34 @@
             size: 28px;
         }
     }
+
+    &__link {
+        color: rgba(white, .7);
+        font: {
+            size: 14px;
+            weight: 300;
+        }
+
+        &:hover {
+            text-decoration: none;
+        }
+
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .header {
+        flex-direction: column-reverse;
+        height: auto;
+        padding: 20px;
+
+        &__title {
+            font-size: 21px;
+            text-align: center;
+        }
+
+        &__link {
+            margin-bottom: 10px;
+        }
+    }
 }
