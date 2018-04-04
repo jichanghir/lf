@@ -4,7 +4,9 @@
   "description": "1. запустить локольно mongo (mongod)\r 2. cd lf-admin-backend -> npm i -> npm run dev (or npm start) ; Должно быть обязательно на порту 3000\r 3. cd lf-admin-frontend -> npm i -> npm run dev ; Должно быть обязательно на порту 8080",
   "main": "index.js",
   "scripts": {
-    "start": "cd lf-admin-backend && npm i && npm start"
+    "run-back": "cd lf-admin-backend && npm i && npm start",
+    "run-front": "cd lf-admin-frontend && npm i && npm run prod",
+    "start": "npm i parallelshell && parallelshell 'npm run run-back' 'npm run run-front'"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/jichanghir/lf/issues"
   },
-  "homepage": "https://github.com/jichanghir/lf#readme"
+  "homepage": "https://github.com/jichanghir/lf#readme",
+  "dependencies": {
+    "parallelshell": "^3.0.2"
+  }
 }
