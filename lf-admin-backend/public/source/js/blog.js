@@ -64,11 +64,13 @@ $(function() {
             'width': $articlesList.outerWidth()
         });
 
+        // выполниться только тогда когда будет действия скроллинг
         $(WIN).scroll(() => {
             WIN.screen.width >= 1200 && setArticleChords();
             setArticleActive();
         });
 
+        // выполниться при загрузке кода
         WIN.screen.width >= 1200 && setArticleChords();
         setArticleActive();
 
