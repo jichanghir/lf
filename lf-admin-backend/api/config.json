@@ -7,8 +7,8 @@
         "password": ""
     },
     "db": {
-        "host": "ds223578.mlab.com",
-        "port": "23578",
+        "host": "ds235169.mlab.com",
+        "port": "35169",
         "name": "heroku_7cfl8bnd",
         "user": "heroku_7cfl8bnd",
         "password": "g3vhv44kses2joe3jkhb5lr1k6"
