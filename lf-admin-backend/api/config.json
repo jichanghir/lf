@@ -1,9 +1,16 @@
 {
-    "db": {
+    "db-b": {
         "host": "localhost",
         "port": "27017",
         "name": "loftschool",
         "user": "",
         "password": ""
-    }
+    },
+    "db": {
+        "host": "ds223578.mlab.com",
+        "port": "23578",
+        "name": "heroku_cd6n2xdt",
+        "user": "",
+        "password": ""
+    },
 }
