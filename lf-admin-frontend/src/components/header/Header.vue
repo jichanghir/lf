@@ -1,7 +1,7 @@
 <template lang="pug">
     header.header
         .header__title Панель администрирования
-        router-link(to="#").header__link Вернуться на сайт
+        a(href="https://serkin-loftschool.herokuapp.com").header__link Вернуться на сайт
 </template>
 
 <script>
