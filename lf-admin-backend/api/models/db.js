@@ -4,7 +4,7 @@ const config = require('../config.json');
 // Use native promises
 mongoose.Promise = global.Promise;
 
-mongoose.connect(`mongodb://${config.db.host}:${config.db.port}/${config.db.name}`, {useMongoClient: true})
+mongoose.connect(`mongodb://${config.db.user}:${config.db.password}@${config.db.host}:${config.db.port}/${config.db.name}`, {useMongoClient: true})
 .catch((e) => console.log(e));
 const db = mongoose.connection;
 
@@ -29,3 +29,4 @@ process.on('SIGINT', () => {
 });
 
 //const Article = require('./article');
+mongodb://<dbuser>:<dbpassword>@ds235169.mlab.com:35169/heroku_7cfl8bnd
