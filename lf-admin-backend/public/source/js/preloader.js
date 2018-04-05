@@ -1,21 +1,5 @@
 const preloader = (function () {
-    let percentTotal = 0,
-        preloader = $('#preloader');
-
-    let imgPath = $('*').map((index, element) => {
-        let bg = $(element).css('background-image');
-        let img = $(element).is('img');
-        let path;
-
-        if (bg !== 'none') {
-            path = bg.replace('url("', '').replace('")', '');
-        }
-
-        if (img) {
-            path = $(element).attr('src');
-        }
-        return path;
-    });
+    const preloader = $('#preloader');
 
     const setPercent = (total, current) => {
         let percents = Math.ceil(current / total * 100);
@@ -32,6 +16,8 @@ const preloader = (function () {
             preloader.fadeOut();
         }
         else {
+            let percentTotal = 0;
+
             images.forEach((img) => {
                 let fakeImg = $('<img>', {
                     attr: {
@@ -49,7 +35,22 @@ const preloader = (function () {
 
     return {
         init() {
-            let imgs = imgPath.toArray();
+            const imgPath = $('*').map((index, element) => {
+                let bg = $(element).css('background-image');
+                let img = $(element).is('img');
+                let path;
+
+                if (bg !== 'none') {
+                    path = bg.replace('url("', '').replace('")', '');
+                }
+
+                if (img) {
+                    path = $(element).attr('src');
+                }
+                return path;
+            });
+
+            const imgs = imgPath.toArray();
 
             loadImages(imgs);
         }
