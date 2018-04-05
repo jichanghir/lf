@@ -8,7 +8,7 @@ $(function() {
         arrows: false,
         speed: 500,
         cssEase: 'linear',
-        //autoplay: true,
+        autoplay: true,
         slidesToShow: slideToShow
     });
 });
