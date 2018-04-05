@@ -52,6 +52,14 @@
     }
 }
 
+@media screen and (min-width: 1199px) {
+    .footer {
+        &--on {
+            margin-top: -150px;
+        }
+    }
+}
+
 @media screen and (max-width: 1199px) {
     .footer {
         &__top, &__bottom {
