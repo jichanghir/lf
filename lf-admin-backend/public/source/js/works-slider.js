@@ -5,7 +5,9 @@ $(function() {
         fade: true,
         cssEase: 'linear',
         prevArrow: '#link-block--btn-prev',
-        nextArrow: '#link-block--btn-next'
+        nextArrow: '#link-block--btn-next',
+        touchMove: false,
+        swipe: false
     });
 
     $('#img-block').slick({
@@ -14,7 +16,9 @@ $(function() {
         fade: true,
         cssEase: 'linear',
         prevArrow: '#img-block--btn-prev',
-        nextArrow: '#img-block--btn-next'
+        nextArrow: '#img-block--btn-next',
+        touchMove: false,
+        swipe: false
     });
 
     $('#nav-slider--prev').slick({
@@ -23,7 +27,9 @@ $(function() {
         vertical: true,
         cssEase: 'linear',
         prevArrow: '#nav-slider--prev--btn-prev',
-        nextArrow: '#nav-slider--prev--btn-next'
+        nextArrow: '#nav-slider--prev--btn-next',
+        touchMove: false,
+        swipe: false
     });
 
     $('#nav-slider--next').slick({
@@ -32,7 +38,9 @@ $(function() {
         vertical: true,
         cssEase: 'linear',
         prevArrow: '#nav-slider--next--btn-prev',
-        nextArrow: '#nav-slider--next--btn-next'
+        nextArrow: '#nav-slider--next--btn-next',
+        touchMove: false,
+        swipe: false
     });
 
     $('#btn-prev').on('click', function() {
