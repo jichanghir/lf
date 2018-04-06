@@ -2,7 +2,7 @@ include ../helpers/mixins
 
 mixin topSection(page, title)
 
-    section.top-section#top-section
+    section(class=`top-section top-section--${page}`)#top-section
         include ./header
 
         .user-main.top-section__user-main

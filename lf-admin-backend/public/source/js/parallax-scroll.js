@@ -17,7 +17,7 @@
 
             const moveLayers = (e) => {
                 [].slice.call(layers).forEach((layer, index) => {
-                    const scrollVal = 0 - WIN.pageYOffset * (index/10);
+                    const scrollVal = 0 - WIN.pageYOffset * (index/20);
 
                     const transformString = `translateY(${scrollVal}px)`;
                     layer.style.transform = transformString;

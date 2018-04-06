@@ -43,24 +43,32 @@
         width: 50%;
     }
 
-    // &::before {
-    //     content: '';
-    //     position: absolute;
-    //     left: 0;
-    //     right: 0;
-    //     bottom: 0;
-    //     top: 0;
-    //     height: 100%;
-    //     width: 100%;
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -10;
 
-    //     opacity: .07;
+        opacity: .07;
 
-    //     background:
-    //         url('/images/icons/portfolio_header.svg')
-    //         center center
-    //         no-repeat;
-    //     background-size: auto;
-    // }
+        background:
+            url('/images/icons/portfolio_header.svg')
+            center center
+            no-repeat;
+        background-size: auto;
+    }
+
+    &--blog {
+        &::before {
+            background-image: url(/images/icons/blog_header.svg);
+            background-position: center calc(50% + 150px);
+        }
+    }
 }
 
 @media screen and (max-width: 1199px) {
